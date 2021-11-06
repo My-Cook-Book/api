@@ -1,7 +1,7 @@
-import * as UsersServices from "../../services/recipes/index.js";
+import * as RecipesServices from "../../services/recipes/index.js";
 
 async function getAllRecipes(req, res) {
-  const recipes = await UsersServices.getAllRecipes();
-  res.json(users);
+  const recipes = await RecipesServices.getAllRecipes();
+  res.json(recipes);
 }
 export default getAllRecipes;
