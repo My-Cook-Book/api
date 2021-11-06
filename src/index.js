@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import users from "./routers/users.js";
+import recipes from "./routers/recipes.js";
 
 const PORT = 5000;
 const DB_URL =
@@ -8,6 +9,7 @@ const DB_URL =
 const app = express();
 app.use(express.json());
 app.use(users);
+app.use(recipes);
 async function startApp() {
   try {
     await mongoose.connect(DB_URL);
