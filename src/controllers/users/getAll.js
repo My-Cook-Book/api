@@ -1,7 +1,7 @@
 import * as UsersServices from "../../services/users/index.js";
 
-async function getAllUsers(req, res) {
+async function getAll(req, res) {
   const users = await UsersServices.getAllUsers();
   res.json(users);
 }
-export default getAllUsers;
+export default getAll;
