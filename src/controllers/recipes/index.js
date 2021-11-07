@@ -1,1 +1,7 @@
-export { default as getAllRecipes } from "./getAllRecipes.js";
+const getAll = require("./getAll");
+const getById = require("./getById");
+
+module.exports = {
+  getAll,
+  getById,
+};

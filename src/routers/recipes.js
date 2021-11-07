@@ -1,8 +1,9 @@
-import express from "express";
-import * as RecipesControllers from "../controllers/recipes/index.js";
+const express = require("express");
+const RecipesControllers = require("../controllers/recipes/index.js");
 
 const router = express.Router();
 
-router.get("/recipes", RecipesControllers.getAllRecipes);
+router.get("/recipes", RecipesControllers.getAll);
+router.get("/recipes/:id", RecipesControllers.getById);
 
-export default router;
+module.exports = router;
