@@ -1,7 +1,8 @@
-import * as UsersServices from "../../services/users/index.js";
+const UsersServices = require('../../services/users')
 
 async function getAll(req, res) {
-  const users = await UsersServices.getAllUsers();
+  const users = await UsersServices.getAll();
   res.json(users);
 }
-export default getAll;
+
+module.exports = getAll

@@ -1,8 +1,9 @@
-import express from "express";
-import * as UsersControllers from "../controllers/users/index.js";
+const express = require("express");
+const UsersControllers = require("../controllers/users/index.js")
 
 const router = express.Router();
 
 router.get("/users", UsersControllers.getAll);
+router.get("/users/:id", UsersControllers.getById);
 
-export default router;
+module.exports = router

@@ -1,1 +1,7 @@
-export { default as getAllUsers } from "./getAllUsers.js";
+const getAll = require('./getAll');
+const getById = require('./getById');
+
+module.exports = {
+  getAll,
+  getById
+}
