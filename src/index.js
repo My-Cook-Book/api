@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(users);
 app.use(recipes);
+
 async function startApp() {
   try {
     await mongoose.connect(DB_URL);

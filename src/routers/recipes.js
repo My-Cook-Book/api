@@ -1,5 +1,8 @@
 import express from "express";
-import * as UsersControllers from "../controllers/users/index.js";
+import * as RecipesControllers from "../controllers/users/index.js";
+
 const router = express.Router();
-router.get("/recipes", UsersControllers.getAllRecipes);
+
+router.get("/recipes", RecipesControllers.getAllRecipes);
+
 export default router;
