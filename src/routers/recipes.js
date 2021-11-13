@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.get("/recipes", RecipesControllers.getAll);
 router.get("/recipes/:id", RecipesControllers.getById);
+router.post("/recipes", RecipesControllers.create);
 
 module.exports = router;
