@@ -5,6 +5,7 @@ async function deletev(req, res) {
   if (!recipe) {
     res.sendStatus(404);
   }
+
   return res.json(recipe);
 }
 

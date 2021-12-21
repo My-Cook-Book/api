@@ -1,11 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
+const Users = require("../../db/models/User");
 
 async function getAll() {
-  const __dirname = path.resolve() + '/src';
-  const users = fs.readFileSync(__dirname + '/services/users' + '/users.json', { encoding: 'utf8' })
-  const parsedUsers = JSON.parse(users)
-  return parsedUsers
+  const user = await Users.find();
+  return user;
 }
 
-module.exports = getAll
+module.exports = getAll;

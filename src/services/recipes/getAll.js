@@ -1,14 +1,10 @@
 const fs = require("fs");
 const path = require("path");
+const Recipe = require("../../db/models/Recipe");
 
 async function getAll() {
-  const __dirname = path.resolve() + "/src";
-  const recipes = fs.readFileSync(
-    __dirname + "/services/recipes" + "/recipes.json",
-    { encoding: "utf8" }
-  );
-  const parsedRecipes = JSON.parse(recipes);
-  return parsedRecipes;
+  const recipes = await Recipe.find();
+  return recipes;
 }
 
 module.exports = getAll;

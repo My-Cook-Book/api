@@ -2,6 +2,9 @@ const path = require("path");
 const fs = require("fs");
 
 async function deletev(id) {
+
+  Model.deleteOne({ _id: id })
+
   const __dirname = path.resolve() + "/src";
   const recipes = fs.readFileSync(
     __dirname + "/services/recipes" + "/recipes.json",

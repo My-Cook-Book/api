@@ -10,6 +10,6 @@ const RecipeSchema = new mongoose.Schema({
     required: true,
   },
 });
-const User = mongoose.model("recipes", RecipeSchema);
+const Recipe = mongoose.model("recipes", RecipeSchema);
 
 module.exports = Recipe;
