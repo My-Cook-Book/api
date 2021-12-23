@@ -1,7 +1,7 @@
 const RecipesServices = require("../../services/recipes");
 
-async function deletOne(req, res) {
-  const recipe = await RecipesServices.deletOne(req.params.id);
+async function deleteOne(req, res) {
+  const recipe = await RecipesServices.deleteOne(req.params.id);
   if (!recipe) {
     res.sendStatus(404);
   }
@@ -9,4 +9,4 @@ async function deletOne(req, res) {
   return res.json(recipe);
 }
 
-module.exports = deletOne;
+module.exports = deleteOne;
