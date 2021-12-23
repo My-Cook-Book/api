@@ -1,14 +1,11 @@
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const fs = require("fs");
+const User = require("../../db/models/User.js");
+const ObjectId = require("../../db/models/User.js");
 
 async function getById(id) {
-  const __dirname = path.resolve() + '/src';
-  const users = fs.readFileSync(__dirname + '/services/users' + '/users.json', { encoding: 'utf8' })
-  const parsedUsers = JSON.parse(users)
-
-  const user = parsedUsers.find((elem) => elem.id === Number(id))
-
-  return user
+  const users = await User.findById({ _id: id });
+  return users;
 }
 
-module.exports = getById
+module.exports = getById;

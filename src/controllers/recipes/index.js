@@ -2,12 +2,12 @@ const getAll = require("./getAll");
 const getById = require("./getById");
 const create = require("./create");
 const update = require("./update");
-const deletev = require("./deletev");
+const deleteOne = require("./deletOne");
 
 module.exports = {
   getAll,
   getById,
   create,
   update,
-  deletev,
+  deleteOne,
 };
