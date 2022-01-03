@@ -6,7 +6,8 @@ const router = express.Router();
 router.get("/recipes", RecipesControllers.getAll);
 router.get("/recipes/:id", RecipesControllers.getById);
 router.post("/recipes", RecipesControllers.create);
-router.put("/recipes/:id", RecipesControllers.update);
+router.put("/recipes/:id", RecipesControllers.completeRenewal);
+router.patch("/recipes/:id", RecipesControllers.partialRenewal);
 router.delete("/recipes/:id", RecipesControllers.deleteOne);
 
 module.exports = router;
