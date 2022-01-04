@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { ObjectId } = require("mongoose");
 
 const RecipeSchema = new mongoose.Schema({
   title: {
@@ -9,6 +10,7 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  author: { type: ObjectId, ref: "users" },
 });
 const Recipe = mongoose.model("recipes", RecipeSchema);
 
