@@ -9,6 +9,16 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "отсутствует",
   },
+  phone: {
+    type: Integer,
+    required: true,
+    unique: true,
+  },
+
+  avatar: {
+    type: String,
+    default: "отсутствует",
+  },
 });
 const User = mongoose.model("users", UserSchema);
 
