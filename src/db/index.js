@@ -9,6 +9,7 @@ async function connect() {
     });
   } catch (e) {
     console.log("Ошибка, при подключении к базе данных", e);
+    throw e;
   }
 }
 module.exports = {

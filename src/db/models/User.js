@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
     default: "отсутствует",
   },
   phone: {
-    type: Integer,
+    type: Number,
     required: true,
     unique: true,
   },

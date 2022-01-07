@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { ObjectId } = require("mongoose");
-const ObjectId = require("mongoose/lib/schema/objectid");
 
 const RecipeSchema = new mongoose.Schema({
   title: {
@@ -11,24 +10,23 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  author: { type: ObjectId, ref: "users" },
+  author: { type: ObjectId, ref: "users", required: true },
+  instructions: [{ type: ObjectId, ref: "instructions", required: true }],
   rating: {
-    type: Integer,
+    type: Number,
   },
-
+с
   timeCook: {
-    type: Integer,
+    type: Number,
   },
 
   category: {
     type: String,
   },
-  Kichen: {
-    type: ObjectId,
-  },
-  ingredients: [{type: String}],
-  instruction: [{type: String}],
-  images: [{type: String}],
+  kitchen: [{ type: ObjectId, ref: "kitchen", required: true }],
+  ingredients: [{ type: ObjectId, ref: "ingredients", required: true }],
+  
+  images: [{ type: String }],
 });
 const Recipe = mongoose.model("recipes", RecipeSchema);
 
