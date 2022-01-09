@@ -15,7 +15,7 @@ const RecipeSchema = new mongoose.Schema({
   rating: {
     type: Number,
   },
-с
+
   timeCook: {
     type: Number,
   },

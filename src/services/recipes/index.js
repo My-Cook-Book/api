@@ -4,7 +4,7 @@ const create = require("./create");
 const update = require("./update");
 const deleteOne = require("./deleteOne");
 const partialRenewal = require("./partialRenewal");
-const completeRenewal = require('./completeRenewal')
+const completeRenewal = require("./completeRenewal");
 
 
 module.exports = {
@@ -15,4 +15,5 @@ module.exports = {
   deleteOne,
   partialRenewal,
   completeRenewal,
+  
 };
