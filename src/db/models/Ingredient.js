@@ -16,6 +16,6 @@ count: {
 },
 
 });
-const Ingredient = mongoose.model("Ingredient", IngredientSchema);
+const Ingredient = mongoose.model("ingredients", IngredientSchema);
 
 module.exports = Ingredient;

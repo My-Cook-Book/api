@@ -12,6 +12,6 @@ value: {
 },
 
 });
-const Kitchen = mongoose.model("Kitchen", KitchenSchema);
+const Kitchen = mongoose.model("kitchens", KitchenSchema);
 
 module.exports = Kitchen;
