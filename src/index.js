@@ -3,22 +3,39 @@ const users = require("./routers/users.js");
 const recipes = require("./routers/recipes.js");
 const { connect } = require("./db/index.js");
 const auth = require("./routers/auth.js");
-const controller = require("./controllers/authorization/auth.js");
 
-
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 app.use(express.json());
 app.use(users);
 app.use(recipes);
 app.use("/auth", auth);
 
+app.use(function (err, req, res, next) {
+  console.log('TEST')
+  console.error('Error handler', err.stack);
+  return res.status(500).send('Something broke!');
+});
+
 async function startApp() {
-  try {
-    await connect();
-    app.listen(PORT, () => console.log("server started on port " + PORT));
-  } catch (e) {
-    console.log(e);
-  }
+  await connect();
+  app.listen(PORT, () => console.log("server started on port " + PORT));
 }
+
 startApp();
+
+/*
+* 1) Удалить все вредные комментарии (вредные, которые не имеют никакой смысловой нагрузки)
+* 2) Удалить все неиспользуемые импорты (проверь все файлы, много мест где есть пустые импорты)
+* 3) Вместо конфига будем использовать .env файл (реализуем вместе)
+* 4) Однообразное наименование файла (или везеде ___Router или без этих префексов) все файлы должны быть именнованы однообразно
+* 4) в контроллерах каждая папка отвечает за свой набор контроллеров, логическая ошибка помешать в users файл authController с набором контроллеров, выноси в отдельную папку (и смотри по однообразному наименованию или везде префиксы или нигде)
+* 5) контроллер выполняет роль передачи данных сервисам, сам он не содержит никакой логики, максимум предподготовить ответ после работы сервиса. (перенсти все в сервисы)
+* 6) не совсем корректно используется работа с ошибками (реализуем вместе)
+* 7) login - почему авторизация по name? вроде по email должна быть? (вообще реализуем потом на номер телефона)
+* 8) Ingredient Kitchen Role - не корректные название моделей например в Role см 6 строчку, а должно быть как в User на 30 строчке (будь внимателен с сылками, там тоже нужно поменять названия)
+* 9) roleMidleware кажеся там где то не правильно указан статус ответа, где то должен быть 401 а где-то 403 (подумай)
+* 10) префик Midleware написан с ошибкой, исправь если решишь оставить префиксы
+* 11) Удалить не нужные json файлы в сервисах
+*
+* */
