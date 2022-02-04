@@ -1,3 +1,4 @@
+require('express-async-errors');
 const express = require("express");
 const users = require("./routers/users.js");
 const recipes = require("./routers/recipes.js");
@@ -12,9 +13,7 @@ app.use(recipes);
 app.use("/auth", auth);
 
 app.use(function (err, req, res, next) {
-  console.log('TEST')
-  console.error('Error handler', err.stack);
-  return res.status(500).send('Something broke!');
+  return res.status(err.status).send(err.message);
 });
 
 async function startApp() {

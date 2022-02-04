@@ -1,8 +1,8 @@
 const authService = require('../../services/auth')
 
 async function login(req, res) {
-  const user = await authService.login(req.body)
-  return res.json(user);
+  const authData = await authService.login(req.body)
+  return res.json(authData);
 }
 
 module.exports = login

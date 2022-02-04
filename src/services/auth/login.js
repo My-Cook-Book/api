@@ -3,6 +3,7 @@ const Role = require("../../db/models/Role");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { secret } = require("../../config");
+const AppError = require("../../handlers/AppError");
 
 const generateAccessToken = (id, roles) => {
   const payload = {
@@ -13,24 +14,19 @@ const generateAccessToken = (id, roles) => {
 };
 
 async function login({ name, password }) {
-  try {
     const user = await User.findOne({ name });
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: `Пользовательль ${name}  не найден` });
+      throw new AppError(`Пользовательль ${name}  не найден`, 404)
     }
 
     const validPassword = bcrypt.compareSync(password, user.password);
+
     if (!validPassword) {
-      return res.status(400).json({ message: `Введен не верный пароль` });
+      throw new AppError('Не валидные данные', 400)
     }
+
     const token = generateAccessToken(user._id, user.roles);
-    return res.json({ token });
-  } catch (e) {
-    console.log(e);
-    res.status(400).json({ message: "Login error" });
-  }
+    return { token }
 }
 
 module.exports = login;
