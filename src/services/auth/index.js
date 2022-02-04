@@ -1,5 +1,9 @@
-const registration = require('./registration')
+const registration = require("./registration");
+const login = require("./login");
+
+
 
 module.exports = {
-  registration
-}
+  registration,
+  login,
+};
