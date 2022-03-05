@@ -25,7 +25,7 @@ const RecipeSchema = new mongoose.Schema({
   },
   kitchen: [{ type: ObjectId, ref: "kitchen", required: true }],
   ingredients: [{ type: ObjectId, ref: "ingredients", required: true }],
-  
+
   images: [{ type: String }],
 });
 const Recipe = mongoose.model("recipes", RecipeSchema);
