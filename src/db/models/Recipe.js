@@ -10,7 +10,7 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  author: { type: ObjectId, ref: "users", required: true },
+author: { type: ObjectId, ref: "users", required: true },
   instructions: [{ type: ObjectId, ref: "instructions", required: true }],
   rating: {
     type: Number,
