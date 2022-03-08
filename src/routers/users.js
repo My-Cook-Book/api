@@ -8,6 +8,7 @@ const router = express.Router();
 router.get("/users", roleMiddleware( ['USER']), UsersControllers.getAll);
 router.get("/users/:id", UsersControllers.getById);
 router.post("/users", UsersControllers.create);
+router.post("/users/upload-avatar", UsersControllers.uploadAvatar);
 router.put("/users/:id", UsersControllers.completeRenewal);
 router.patch("/users/:id", UsersControllers.partialRenewal);
 router.delete("/users/:id", UsersControllers.deleteOne);

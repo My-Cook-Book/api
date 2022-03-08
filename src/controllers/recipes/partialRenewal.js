@@ -1,9 +1,8 @@
 const RecipeServices = require('../../services/recipes')
 
 async function partialRenewal(req, res) {
-  const reciipe = await RecipesServices.partialRenewal(req.params.id, req.body);
-
-  return res.json(recipe)
+  const recipe = await RecipeServices.partialRenewal(req.params.id, req.body);
+  res.json(recipe)
 }
 
 module.exports = partialRenewal

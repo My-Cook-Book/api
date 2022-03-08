@@ -5,6 +5,7 @@ const update = require("./update");
 const deleteOne = require("./deleteOne");
 const partialRenewal = require("./partialRenewal");
 const completeRenewal = require("./completeRenewal");
+const uploadAvatar = require("./uploadAvatar")
 
 module.exports = {
   getAll,
@@ -14,4 +15,5 @@ module.exports = {
   deleteOne,
   partialRenewal,
   completeRenewal,
+  uploadAvatar,
 };
